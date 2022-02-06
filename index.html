@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="js/campo-minado.js"></script>
+    </head>
+    <body>
+        <div id="exibir-execucao"></div>
+
+        <script>
+            var campoMinado = new CampoMinado();
+            
+            
+            document.getElementById('exibir-execucao').innerHTML += '----------- Início do jogo -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+            
+            // Realize sua codificação a partir deste ponto, boa sorte!
+            function getMatriz(){
+
+                let linhas = 9; 
+                let colunas = 9; 
+                let matriz = new Array(colunas); 
+                let Tabuleiro = campoMinado.Tabuleiro();
+                let tabuleiroSplit = campoMinado.Tabuleiro().replaceAll("\n","").split("\r");
+            
+                for (let i = 0; i < tabuleiroSplit.length; i++) {
+                    matriz[i] = new Array(linhas); 
+                    let stringSlice =  Array.from(tabuleiroSplit[i]);
+                    
+                    for (let j = 0; j < stringSlice.length; j++) {  
+                        
+                        // aqui vc tem todos os valores 
+                        matriz[i][j] = stringSlice[j]
+                    }
+                }
+                return matriz;
+
+            }
+              // Um número pseudo-aleatório entre 0 (inclusivo) e 1 (exclusivo).
+            function getMatriz(){
+                const random = (num) => Math.floor(Math.random() * num) ;
+                console.log(random(3));
+            }
+    
+            document.getElementById('exibir-execucao').innerHTML += '----------- Jogo em aberto -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+        
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(1) / coluna(9)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(4) / coluna(2)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(5) / coluna(7)'+'</pre>';
+ 
+            campoMinado.Abrir(4,1)
+            campoMinado.Abrir(5,6)
+
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(4) / coluna(1)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(5) / coluna(6)'+'</pre>';
+
+            document.getElementById('exibir-execucao').innerHTML += '----------- Jogo em aberto -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+
+            campoMinado.Abrir(5,1)
+            campoMinado.Abrir(5,2)
+
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(5) / coluna(1)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(5) / coluna(2)'+'</pre>';
+
+            document.getElementById('exibir-execucao').innerHTML += '----------- Jogo em aberto -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+
+            campoMinado.Abrir(6,1)
+            campoMinado.Abrir(6,2)
+             
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(4) / coluna(3)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(6) / coluna(1)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(6) / coluna(2)'+'</pre>';
+
+            document.getElementById('exibir-execucao').innerHTML += '----------- Jogo em aberto -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(5) / coluna(4)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(5) / coluna(5)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(6) / coluna(5)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(6) / coluna(6)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(6) / coluna(8)'+'</pre>'; 
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Bomba encontrada: linha(7) / coluna(9)'+'</pre>'; 
+
+            campoMinado.Abrir(6,7)
+            campoMinado.Abrir(6,9)
+
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(6) / coluna(7)'+'</pre>';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>'+'Abrindo casa: linha(6) / coluna(9)'+'</pre>';
+
+            document.getElementById('exibir-execucao').innerHTML += '----------- vitoria -----------';
+            document.getElementById('exibir-execucao').innerHTML += '<pre>' + campoMinado.Tabuleiro() + '</pre>';
+            
+            
+            let current =0
+            let currentField=1
+
+            function campominado(linhas, colunas){
+                let filledfield  = []
+                const len = linhas.length
+                for(let i = 0; i<len; i++){
+                    let linha =[]
+                    for (let j=0; j<colunas; j++){
+                    if(linha[i].charAt(j)==='*'){
+                        console.log('mine')
+                    }
+                }
+            }
+               console.log(field[i])
+            }
+        </script>
+    </body>
+</html>
